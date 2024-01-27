@@ -35,7 +35,7 @@ document.getElementById("user_submit").addEventListener('click',
 } ) 
 
 // Promises section //
-
+let chatResponse = ''
 const chatGPT = (key,callback) => {
 
     if (masterKey === '') {
@@ -58,10 +58,18 @@ const chatGPT = (key,callback) => {
 .then(result => {
     if(!result.ok){ throw new Error(result.status);
 } return result.json()})
-.then(data => console.log(data))
+
+.then(data => {
+    let pulledMsg = data.choices[0].message.content 
+    console.log(pulledMsg),
+    chatResponse = pulledMsg})
+    
+.then(() => document.getElementById('shownResult').innerHTML = chatResponse) 
 .catch((error) => console.error(error))
-// .then(result => console.log('api info changed to json'))
+
 
 };
 
 };
+
+//test//
