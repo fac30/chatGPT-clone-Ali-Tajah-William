@@ -9,24 +9,39 @@
   </head>
   <body>
     <main>
-      <div>
+      <section>
+      <div class="container">
+      <div class="app">
+     
         <h1>Helpful Harry</h1>
-      </div>
-      <div>
+      
         <p>Hi, how can I help you?</p>
+        <div class="displayResponse">
+        
+        </div>
+      
       </div>
-      <div>
+      </div>
+      </section>
+      <section>
+        <div class="container">
+
+       
         <form>
+           <div class="inputContainer api-key-container">
           <label for="apikey">API key:</label>
           <input id="apikey" type="password" placeholder="Enter your key" />
           <button onclick="acceptPassword()" id="submit_key">Submit</button>
         </form>
         <form>
+          <div class="inputContainer">
           <label for="usertext">User input:</label>
-          <input id="usertext" placeholder="Start a Chat" />
-          <button type="">Submit</button>
+          <input type="text" id="usertext" placeholder="Start a Chat" />
+          <button type="submit">Submit</button>
+          </div>
         </form>
       </div>
+      </section>
     </main>
   </body>
 </html>
