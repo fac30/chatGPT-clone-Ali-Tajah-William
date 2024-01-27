@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat GPT Clone FAC30 project</title>
     <link rel="stylesheet" href="./src/styling.css" />
-    <script src="./src/index.js"></script>
+    <script src="./src/index.js"defer></script>
   </head>
   <body>
     <main>
@@ -19,7 +19,7 @@
         <form>
           <label for="apikey">API key:</label>
           <input id="apikey" type="password" placeholder="Enter your key" />
-          <button id="submit_key">Submit</button>
+          <button onclick="acceptPassword()" id="submit_key">Submit</button>
         </form>
         <form>
           <label for="usertext">User input:</label>
