@@ -6,7 +6,8 @@ let masterKey = ""
 function acceptPassword(){
     let tempPw = document.getElementById('apikey').value
     masterKey = tempPw
-    console.log('action completed')
+    // console.log('action completed')
+    // console.log(masterKey)
     
 }
 
@@ -23,7 +24,7 @@ let userInput = ""
 function userTextWriter(){
     let userQuestion = document.getElementById('usertext').value
     userInput =  userQuestion
-    console.log('user question asked')
+    // console.log('user question asked')
 }
 
  
@@ -37,19 +38,30 @@ document.getElementById("user_submit").addEventListener('click',
 
 const chatGPT = (key,callback) => {
 
-    if (userInput || masterKey === ''){
-    console.log('password and/or input error')
-}
+    if (masterKey === '') {
+        return console.log('Password Error')
+    }
+    if (userInput === '' ){
+        return console.log('user input error')
+    } else{
+    fetch("https://api.openai.com/v1/chat/completions" ,
+   { method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${masterKey}`,
+    },
+    body: JSON.stringify({
+        model: 'gpt-3.5-turbo',
+        messages: [{role: 'user', content: userInput }]
+    })})
 
-    fetch("https://api.openai.com/v1/chat/completions")
-        .then(result => result.json())
-        .then(result => console.log('api info changed to json'))
-        .then(data => {
-        callback(data)
-    })
-    .catch((error) => console.log(error));
- 
+.then(result => {
+    if(!result.ok){ throw new Error(result.status);
+} return result.json()})
+.then(data => console.log(data))
+.catch((error) => console.error(error))
+// .then(result => console.log('api info changed to json'))
 
 };
 
-
+};
