@@ -1,3 +1,4 @@
+
 //=========//
 
 let apiKey = "";
@@ -43,3 +44,4 @@ document.querySelector("#input-form").addEventListener("submit", (event) => {
   ChatGPT();
   document.querySelector("#usertext").value = "";
 });
+
